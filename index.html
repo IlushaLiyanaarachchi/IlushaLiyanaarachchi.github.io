@@ -563,6 +563,29 @@
 	</section>
 
 	<script>
+
+		document.addEventListener('DOMContentLoaded', function () {
+			const viewMoreBtn = document.querySelector('.view-more');
+			const hideTextBtn = document.querySelector('.hide-text');
+			const previewText = document.querySelector('.preview-text');
+			const fullText = document.querySelector('.full-text');
+
+			if (viewMoreBtn && hideTextBtn && previewText && fullText) {
+				viewMoreBtn.addEventListener('click', function () {
+					previewText.style.display = 'none';
+					fullText.style.display = 'block';
+					viewMoreBtn.style.display = 'none';
+					hideTextBtn.style.display = 'inline-block';
+				});
+
+				hideTextBtn.addEventListener('click', function () {
+					previewText.style.display = 'block';
+					fullText.style.display = 'none';
+					viewMoreBtn.style.display = 'inline-block';
+					hideTextBtn.style.display = 'none';
+				});
+			}
+		});
 		document.addEventListener('DOMContentLoaded', () => {
 			// Animate welcome text on load
 			const animateWelcomeText = () => {
