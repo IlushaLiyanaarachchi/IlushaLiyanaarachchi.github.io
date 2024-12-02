@@ -645,6 +645,139 @@
 	<!--Custom JS-->
 	<script src="assets/js/custom.js"></script>
 
+	<script>
+		// First, let's add smooth scroll effect
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+
+		// Animate elements on scroll
+		function animateOnScroll() {
+			const elements = document.querySelectorAll('.animate-on-scroll');
+
+			elements.forEach(element => {
+				const elementPosition = element.getBoundingClientRect().top;
+				const screenPosition = window.innerHeight;
+
+				if (elementPosition < screenPosition) {
+					element.classList.add('fade-in');
+				}
+			});
+		}
+
+		// Typing effect for welcome text
+		function typeWriter(element, text, speed = 100) {
+			let i = 0;
+			element.innerHTML = '';
+
+			function type() {
+				if (i < text.length) {
+					element.innerHTML += text.charAt(i);
+					i++;
+					setTimeout(type, speed);
+				}
+			}
+
+			type();
+		}
+
+		// Parallax effect for welcome hero section
+		function parallaxEffect() {
+			const welcomeHero = document.querySelector('.welcome-hero');
+			window.addEventListener('scroll', () => {
+				const scrolled = window.pageYOffset;
+				welcomeHero.style.backgroundPositionY = scrolled * 0.5 + 'px';
+			});
+		}
+
+		// Progress bar animation for skills
+		function animateProgressBars() {
+			const progressBars = document.querySelectorAll('.progress-bar');
+
+			progressBars.forEach(bar => {
+				const value = bar.getAttribute('aria-valuenow');
+				bar.style.width = '0%';
+
+				setTimeout(() => {
+					bar.style.width = value + '%';
+				}, 500);
+			});
+		}
+
+		// Timeline animation
+		function animateTimeline() {
+			const timelineItems = document.querySelectorAll('.single-timeline-box');
+
+			timelineItems.forEach((item, index) => {
+				item.style.opacity = '0';
+				item.style.transform = 'translateX(-50px)';
+
+				setTimeout(() => {
+					item.style.opacity = '1';
+					item.style.transform = 'translateX(0)';
+				}, 300 * index);
+			});
+		}
+
+		// Portfolio hover effect
+		function initPortfolioHover() {
+			const portfolioItems = document.querySelectorAll('.item');
+
+			portfolioItems.forEach(item => {
+				item.addEventListener('mouseenter', () => {
+					item.style.transform = 'scale(1.05)';
+					item.style.transition = 'all 0.3s ease';
+				});
+
+				item.addEventListener('mouseleave', () => {
+					item.style.transform = 'scale(1)';
+				});
+			});
+		}
+
+		// Initialize all effects
+		document.addEventListener('DOMContentLoaded', () => {
+			// Add necessary classes
+			document.querySelectorAll('section').forEach(section => {
+				section.classList.add('animate-on-scroll');
+			});
+
+			// Initialize effects
+			window.addEventListener('scroll', animateOnScroll);
+			parallaxEffect();
+			initPortfolioHover();
+
+			// Animate welcome text
+			const welcomeText = document.querySelector('.header-text h2');
+			if (welcomeText) {
+				typeWriter(welcomeText, welcomeText.textContent);
+			}
+
+			// Initialize timeline and progress bars when in view
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						if (entry.target.classList.contains('experience')) {
+							animateTimeline();
+						}
+						if (entry.target.classList.contains('skills')) {
+							animateProgressBars();
+						}
+					}
+				});
+			});
+
+			document.querySelectorAll('section').forEach(section => {
+				observer.observe(section);
+			});
+		});
+	</script>
+
 </body>
 
 </html>
