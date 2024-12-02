@@ -1184,4 +1184,82 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     }
 }
 
+
+/* Welcome Hero Section Responsive Fixes */
+@media screen and (max-width: 768px) {
+    .welcome-hero {
+        height: 100vh;
+        min-height: 500px;
+        padding: 50px 15px;
+    }
+
+    .welcome-hero .header-text {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .welcome-hero .header-text h2 {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+        /* Ensure text doesn't overflow */
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .header-text p {
+        font-size: 16px;
+        margin: 20px 0 30px;
+    }
+
+    /* Adjust download resume button */
+    .header-text a {
+        width: 180px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+    }
+}
+
+/* Even smaller screens */
+@media screen and (max-width: 480px) {
+    .welcome-hero .header-text h2 {
+        font-size: 28px;
+    }
+
+    .welcome-hero {
+        background-position: center center;
+    }
+
+    /* Ensure content is centered and visible */
+    .welcome-hero .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    .header-text {
+        text-align: center;
+        max-width: 100%;
+    }
+}
+
+/* Fix for very small screens */
+@media screen and (max-width: 320px) {
+    .welcome-hero .header-text h2 {
+        font-size: 24px;
+    }
+
+    .header-text p {
+        font-size: 14px;
+    }
+
+    .header-text a {
+        width: 160px;
+        height: 45px;
+        line-height: 45px;
+    }
+}
+
 /*========================Thank you=================
