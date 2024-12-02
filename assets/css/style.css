@@ -139,7 +139,7 @@ body {
 /* Ensure container stays within bounds */
 .header-area .container {
     width: 100%;
-    max-width: 100%;
+    max-width: 90%;
     padding-left: 15px;
     padding-right: 15px;
 }
