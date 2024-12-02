@@ -451,24 +451,24 @@ nav.navbar.bootsnav .navbar-toggle i {
 /*.single-about-txt*/
 
 /*.single-about-img */
-.single-about-img {
+/* .single-about-img {
     position: relative;
     box-shadow: 0 5px 20px rgba(14, 25, 80, .30);
-}
+} */
 
-.single-about-img:before {
+/* .single-about-img:before {
     position: absolute;
     content: " ";
     top: 0;
     left: 0;
-    width: 109%;
+    width: 100%;
     height: 100%;
     background: rgba(31, 44, 108, .3);
-}
+} */
 
 .single-about-img img {
-    max-width: 500px;
-    height: 468px;
+    max-width: 300px;
+    height: 400px;
 }
 
 .about-list-icon {
