@@ -151,12 +151,12 @@
 										<p>ilu88senu@gmail.com</p>
 									</div>
 								</div>
-								<div class="col-sm-4">
+								<!-- <div class="col-sm-4">
 									<div class="single-about-add-info">
 										<h3>website</h3>
 										<p>www.brownsine.com</p>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 					</div>
@@ -563,25 +563,45 @@
 	</section>
 
 	<script>
-		document.addEventListener('DOMContentLoaded', function () {
-			const viewMoreBtn = document.querySelector('.view-more');
-			const hideTextBtn = document.querySelector('.hide-text');
-			const previewText = document.querySelector('.preview-text');
-			const fullText = document.querySelector('.full-text');
+		document.addEventListener('DOMContentLoaded', () => {
+			// Animate welcome text on load
+			const animateWelcomeText = () => {
+				const text = document.querySelector('.header-text');
+				if (text) {
+					text.style.opacity = '0';
+					setTimeout(() => {
+						text.style.opacity = '1';
+						text.style.transform = 'translateY(0)';
+					}, 300);
+				}
+			};
 
-			viewMoreBtn.addEventListener('click', function () {
-				previewText.style.display = 'none';
-				fullText.style.display = 'block';
-				viewMoreBtn.style.display = 'none';
-				hideTextBtn.style.display = 'inline-block';
-			});
+			// Animate sections on load
+			const animateSections = () => {
+				const sections = document.querySelectorAll('section');
+				sections.forEach((section, index) => {
+					section.style.opacity = '0';
+					setTimeout(() => {
+						section.style.opacity = '1';
+						section.style.transform = 'translateY(0)';
+					}, 300 * (index + 1));
+				});
+			};
 
-			hideTextBtn.addEventListener('click', function () {
-				previewText.style.display = 'block';
-				fullText.style.display = 'none';
-				viewMoreBtn.style.display = 'inline-block';
-				hideTextBtn.style.display = 'none';
-			});
+			// Animate timeline items
+			const animateTimeline = () => {
+				const items = document.querySelectorAll('.single-timeline-box');
+				items.forEach((item, index) => {
+					setTimeout(() => {
+						item.classList.add('animate-in');
+					}, 200 * (index + 1));
+				});
+			};
+
+			// Execute animations
+			animateWelcomeText();
+			animateSections();
+			animateTimeline();
 		});
 	</script><!--/.clients-->
 

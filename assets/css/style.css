@@ -1337,4 +1337,39 @@ span.single-timeline-horizontal.spacial-horizontal-line {
     width: 100%;
 }
 
+/* Base animations */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.header-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.single-timeline-box {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+}
+
+.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+    .single-timeline-box {
+        transform: translateY(20px);
+    }
+
+    .animate-in {
+        transform: translateY(0);
+    }
+}
+
 /*========================Thank you=================
